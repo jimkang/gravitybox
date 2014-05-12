@@ -1,0 +1,24 @@
+{
+  "name": "gravitybox",
+  "version": "0.1.0",
+  "description": "Module for the browser that creates a bounded D3 force layout in which each node added has 'gravity' that makes it fall to the bottom of the box, which respecting collisions with other nodes.",
+  "main": "gravitybox.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/gravitybox.git"
+  },
+  "keywords": [
+    "d3",
+    "force",
+    "gravity",
+    "collision"
+  ],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/gravitybox/issues"
+  },
+  "homepage": "https://github.com/jimkang/gravitybox",
+  "dependencies": {
+  }
+}

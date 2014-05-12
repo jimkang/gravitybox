@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<html>
+<head>
+  <title>gravitybox example: Ball drop!</title>
+  <link rel="stylesheet" type="text/css" href="example.css" />
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'med0yzx',
+        scriptTimeout: 3000
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body>
+
+<h2>Ball drop!</h2>
+
+<p class="explanation">
+  Here's a simulation of a lot of balls dropping into a box put together with the <a href="https://github.com/jimkang/gravitybox">gravitybox</a> module.
+</p>
+
+<svg id="board" width="400" height="500">
+  <g id="ball-layer">
+</svg>
+
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../gravitybox.js"></script>
+<script src="controller.js"></script>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49491163-1', 'jimkang.com');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
