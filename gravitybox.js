@@ -1,7 +1,7 @@
 function createGravityBox(opts) {
   var w = opts.width,
       h = opts.height,
-      r = 16;
+      r = opts.r ? opts.r : 16;
 
   var force = d3.layout.force()
       .friction(0.4)

@@ -3,6 +3,7 @@
     root: d3.select('#ball-layer'),
     width: 400,
     height: 500,
+    r: 20,
     nodeClass: 'node',
     nodeElementName: 'circle',
     xAttr: 'cx',
@@ -17,7 +18,7 @@
       x: ~~(Math.random() * 400),
       y: 0,
       attrs: {
-        r: 15
+        r: 20
       },
       styles: {
         fill: color,
@@ -31,7 +32,7 @@
 
   var wavesUnleashed = 0;
   var intervalKey = setInterval(function unleashMore() {
-    if (wavesUnleashed > 2) {
+    if (wavesUnleashed > 1) {
       clearInterval(intervalKey);
     }
     var nextWave = d3.range(50).map(makeNode);
