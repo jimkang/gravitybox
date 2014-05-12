@@ -7,7 +7,10 @@ function createGravityBox(opts) {
       .friction(0.4)
       .size([w, h]);
 
-  function render(nodeData) {
+  var allNodeData = [];
+  var allLinkData = [];
+
+  function add(nodeData) {
     var magnetNodes = nodeData.map(magnetNodeForNode);
 
     var linkData = magnetNodes.map(function makeLink(magnetNode, i) {
@@ -15,12 +18,17 @@ function createGravityBox(opts) {
         source: magnetNode,
         target: nodeData[i]
       };
-    });
+    });    
 
     nodeData = nodeData.concat(magnetNodes);
     nodeData.forEach(function setRadius(node) { node.radius = r; });
 
-    var allNodes = opts.root.selectAll('.' + opts.nodeClass).data(nodeData);
+    allNodeData = allNodeData.concat(nodeData);
+    allLinkData = allLinkData.concat(linkData);
+  }
+
+  function render() {
+    var allNodes = opts.root.selectAll('.' + opts.nodeClass).data(allNodeData);
     var newNodes = allNodes.enter().append(opts.nodeElementName)
       .classed(opts.nodeClass, true);
 
@@ -31,17 +39,17 @@ function createGravityBox(opts) {
     });
 
     force
-      .nodes(nodeData)
-      .links(linkData)
+      .nodes(allNodeData)
+      .links(allLinkData)
       .on('tick', tick)
       .start();
 
     function tick() {
-      var q = d3.geom.quadtree(nodeData),
+      var q = d3.geom.quadtree(allNodeData),
         i = 0,
-        n = nodeData.length;
+        n = allNodeData.length;
 
-      while (++i < n) q.visit(collide(nodeData[i]));
+      while (++i < n) q.visit(collide(allNodeData[i]));
 
       allNodes
         .attr(opts.xAttr, updateX)
@@ -118,6 +126,7 @@ function createGravityBox(opts) {
   }
 
   return {
+    add: add,
     render: render
   };
 }

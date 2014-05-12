@@ -1,6 +1,6 @@
 {
   "name": "gravitybox",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Module for the browser that creates a bounded D3 force layout in which each node added has 'gravity' that makes it fall to the bottom of the box, which respecting collisions with other nodes.",
   "main": "gravitybox.js",
   "repository": {

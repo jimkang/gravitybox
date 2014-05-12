@@ -10,7 +10,8 @@
   });
 
   var fill = d3.scale.category20();
-  var nodes = d3.range(100).map(function makeNode(i) { 
+
+  function makeNode(i) { 
     var color = fill(~~(Math.random() * 20));
     return {
       x: ~~(Math.random() * 400),
@@ -23,7 +24,21 @@
         stroke: d3.rgb(color).darker()
       }
     };
-  });
+  }
+  var nodes = d3.range(0).map(makeNode);
+  gravitybox.add(nodes);
+  gravitybox.render();
 
-  gravitybox.render(nodes);
+  var wavesUnleashed = 0;
+  var intervalKey = setInterval(function unleashMore() {
+    if (wavesUnleashed > 2) {
+      clearInterval(intervalKey);
+    }
+    var nextWave = d3.range(50).map(makeNode);
+    gravitybox.add(nextWave);
+    gravitybox.render();
+    wavesUnleashed += 1;
+  },
+  1500);
+
 })());

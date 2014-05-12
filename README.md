@@ -32,7 +32,7 @@ In your JavaScript, create an instance of gravitybox:
 
 `nodeClass` can be anything. `nodeElementName` can be any SVG element that can be positioned with two attributes, such as `cx` and `cy` for a circle. 
 
-Make some nodes to pass to `gravitybox.render()`. Each node should have an initial x and y position. (gravitybox will map `x` and `y` to whatever you specify as `xAttr` and `yAttr.`) You can also specify attributes and styles to apply to the node elements.
+Make an array of nodes to pass to `gravitybox.add()`. Each node should have an initial x and y position. (gravitybox will map `x` and `y` to whatever you specify as `xAttr` and `yAttr.`) You can also specify attributes and styles to apply to the node elements.
 
     {
       x: 20,
@@ -45,6 +45,8 @@ Make some nodes to pass to `gravitybox.render()`. Each node should have an initi
         stroke: 'lightsteelblue'
       }
     }
+
+Call `gravitybox.render()`.
 
 Look at the code in /example for more detail.
 
