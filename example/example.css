@@ -7,8 +7,8 @@ body {
   font-family: adobe-garamond-pro, serif;
   font-size: 24px;
   color: #666;
-  background-color: white;
-  margin: 2em;
+  background-color: #042029;
+  margin: 0;
   height: 100%;
 }
 
@@ -179,4 +179,10 @@ footer .copy {
 
 footer .copy, footer .copy a {
   color: #8e8e8e;
+}
+
+.tagbox {
+  font-family: 'Lucida Console',
+  font-size: 14px;
+  stroke: none;
 }
